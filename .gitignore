@@ -1,0 +1,14 @@
+# IntelliJ IDEA / PyCharm
+.idea/
+*.iml
+
+# System files
+.DS_Store
+
+# Package manager dependencies
+node_modules/
+__pycache__/
+*.pyc
+
+# Sensitive environment files
+.env
