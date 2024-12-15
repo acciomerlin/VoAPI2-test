@@ -1,6 +1,8 @@
 import copy, random
 from VoAPIGlobalData import *
 from VoAPIUtils import *
+
+
 class ApiTemplate(object):
     def __init__(self, api_url, api_method, api_request, api_response):
         if api_url.startswith("/"):
@@ -20,14 +22,14 @@ class ApiTemplate(object):
 
     def init_request_value(self):
         def generate_random_value(param_type):
-            return RandomValueDict[param_type][random.randint(0,43)]
-        
+            return RandomValueDict[param_type][random.randint(0, 43)]
+
         def get_param_format(param_name):
             for format_str in ApiParamFormat:
                 if format_str in param_name:
-                    return [ApiParamFormat[format_str][random.randint(0,43)], "VoAPI_FORMAT"]
+                    return [ApiParamFormat[format_str][random.randint(0, 43)], "VoAPI_FORMAT"]
             return []
-        
+
         def value_type_conversion(value_list, type):
             result_list = []
             if type == "Number":
@@ -53,7 +55,7 @@ class ApiTemplate(object):
             else:
                 result_list = value_list
             return result_list
-                
+
         def param_assignment(param_struct, param_name=""):
             param_type = param_struct[0]
             example_value_list = param_struct[1]
@@ -79,7 +81,7 @@ class ApiTemplate(object):
                 return param_name_value
             else:
                 return [generate_random_value(param_type), "VoAPI_RANDOM"]
-        
+
         def traverse_and_assignment(param_dict, api_request_param_dict, param_name):
             param_struct = param_dict[param_name]
             api_request_param_struct = api_request_param_dict[param_name]
@@ -87,7 +89,8 @@ class ApiTemplate(object):
                 for array_param_index in range(1, len(param_struct)):
                     if type(param_struct[array_param_index]) == dict:
                         for array_param_name in param_struct[array_param_index]:
-                            traverse_and_assignment(param_struct[array_param_index], api_request_param_struct[array_param_index], array_param_name)
+                            traverse_and_assignment(param_struct[array_param_index],
+                                                    api_request_param_struct[array_param_index], array_param_name)
                     elif type(param_struct[array_param_index]) == list:
                         param_struct[array_param_index] = param_assignment(param_struct[array_param_index])
                     elif type(param_struct[array_param_index]) == bool:
@@ -107,17 +110,24 @@ class ApiTemplate(object):
                     print("Not supported param_struct[1] in init_request_value: ", param_struct[1])
             else:
                 param_dict[param_name] = param_assignment(param_dict[param_name], param_name)
+
         api_request_value = copy.deepcopy(self.api_request)
         for api_request_part in api_request_value:
             if api_request_value[api_request_part]:
-                if (len(api_request_value[api_request_part].keys()) == 1) and (type(api_request_value[api_request_part][list(api_request_value[api_request_part].keys())[0]]) == dict):
+                if (len(api_request_value[api_request_part].keys()) == 1) and (type(api_request_value[api_request_part][
+                                                                                        list(api_request_value[
+                                                                                                 api_request_part].keys())[
+                                                                                            0]]) == dict):
                     # Ignore meaningless first parameter names in OpenAPI V2 body parameters
-                    api_request_value[api_request_part] = api_request_value[api_request_part][list(api_request_value[api_request_part].keys())[0]]
-                    self.api_request[api_request_part] = self.api_request[api_request_part][list(self.api_request[api_request_part].keys())[0]]
+                    api_request_value[api_request_part] = api_request_value[api_request_part][
+                        list(api_request_value[api_request_part].keys())[0]]
+                    self.api_request[api_request_part] = self.api_request[api_request_part][
+                        list(self.api_request[api_request_part].keys())[0]]
                 for param_name in api_request_value[api_request_part]:
-                    traverse_and_assignment(api_request_value[api_request_part], self.api_request[api_request_part], param_name)    
+                    traverse_and_assignment(api_request_value[api_request_part], self.api_request[api_request_part],
+                                            param_name)
         return api_request_value
-    
+
     def init_response_value(self):
         def value_type_conversion(value_list, type):
             result_list = []
@@ -144,6 +154,7 @@ class ApiTemplate(object):
             else:
                 result_list = value_list
             return result_list
+
         def param_assignment(param_struct):
             param_type = param_struct[0]
             example_value_list = param_struct[1]
@@ -160,17 +171,18 @@ class ApiTemplate(object):
                 example_value_list = value_type_conversion(example_value_list, param_type)
                 param_name_value = [example_value_list[0], "VoAPI_SPECIFICATION"]
             return param_name_value
-        
+
         def traverse_and_assignment(param_dict, api_response_param_dict, param_name):
-            #print("param_dict: ", param_dict, param_name)
+            # print("param_dict: ", param_dict, param_name)
             param_struct = param_dict[param_name]
             api_response_param_struct = api_response_param_dict[param_name]
-            #print("param_struct: ", param_struct)
+            # print("param_struct: ", param_struct)
             if param_struct[0] == "Array":
                 for array_param_index in range(1, len(param_struct)):
                     if type(param_struct[array_param_index]) == dict:
                         for array_param_name in param_struct[array_param_index]:
-                            traverse_and_assignment(param_struct[array_param_index], api_response_param_struct[array_param_index], array_param_name)
+                            traverse_and_assignment(param_struct[array_param_index],
+                                                    api_response_param_struct[array_param_index], array_param_name)
                     elif type(param_struct[array_param_index]) == list:
                         param_struct[array_param_index] = param_assignment(param_struct[array_param_index])
                     elif type(param_struct[array_param_index]) == bool:
@@ -190,12 +202,13 @@ class ApiTemplate(object):
                     print("Not supported param_struct[1] in init_response_value: ", param_struct[1])
             else:
                 param_dict[param_name] = param_assignment(param_dict[param_name])
-                
+
         api_response_value = copy.deepcopy(self.api_response)
         for api_response_part in api_response_value:
             if api_response_value[api_response_part]:
                 for param_name in api_response_value[api_response_part]:
-                    traverse_and_assignment(api_response_value[api_response_part], self.api_response[api_response_part], param_name)
+                    traverse_and_assignment(api_response_value[api_response_part], self.api_response[api_response_part],
+                                            param_name)
         return api_response_value
 
     def show(self):
@@ -212,12 +225,11 @@ class ApiTemplate(object):
         show_str += "api_request: " + str(self.api_request) + "\n"
         show_str += "api_response: " + str(self.api_response) + "\n"
         show_str += "api_request_value: " + str(self.api_request_value) + "\n"
-        show_str += "api_response_value: "+ str(self.api_response_value) + "\n"
+        show_str += "api_response_value: " + str(self.api_response_value) + "\n"
         show_str += "##################" + "\n"
-        f = open("api_template.txt","a+")
+        f = open("api_template.txt", "a+")
         f.write(show_str)
         f.close()
-
 
 # Example:
 #     api_url = "/teams/{teamId}/memberships"

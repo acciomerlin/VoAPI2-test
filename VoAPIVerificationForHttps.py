@@ -4,6 +4,7 @@ from OpenSSL import crypto
 
 RequestVulnerabilityList = ["ssrf", "command_injection", "xss"]
 
+
 def create_cert(certificate_dir):
     k = crypto.PKey()
     k.generate_key(crypto.TYPE_RSA, 4096)
@@ -18,7 +19,7 @@ def create_cert(certificate_dir):
     cert.get_subject().emailAddress = "beet1e@VoAPI.local"
     cert.set_serial_number(0)
     cert.gmtime_adj_notBefore(0)
-    cert.gmtime_adj_notAfter(10*365*24*60*60)
+    cert.gmtime_adj_notAfter(10 * 365 * 24 * 60 * 60)
     cert.set_issuer(cert.get_subject())
     cert.set_pubkey(k)
     cert.sign(k, 'sha512')
@@ -30,6 +31,7 @@ def create_cert(certificate_dir):
         f.write(crypto.dump_privatekey(crypto.FILETYPE_PEM, k).decode("utf-8"))
     return certificate_dir + "certificate.crt", certificate_dir + "private.key"
 
+
 def create_verification_server(server_ip, server_port, certificate_file, key_file):
     verification_server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
@@ -40,6 +42,7 @@ def create_verification_server(server_ip, server_port, certificate_file, key_fil
     print("https verification_server listen...")
     return ssl_verification_server
 
+
 def vul_verification(verification_server, vul_dir):
     while True:
         try:
@@ -47,21 +50,23 @@ def vul_verification(verification_server, vul_dir):
             socket_data = socket_conn.recv(1024).decode('utf-8', errors='ignore')
             print(socket_data)
             if socket_data:
-                for RequestVulnerability in RequestVulnerabilityList: 
+                for RequestVulnerability in RequestVulnerabilityList:
                     if RequestVulnerability in socket_data:
                         print("find ", RequestVulnerability)
                         print(socket_data)
-                        vul_filename = socket_data[socket_data.find(RequestVulnerability)+len(RequestVulnerability):socket_data.find(" HTTP/")]
+                        vul_filename = socket_data[socket_data.find(RequestVulnerability) + len(
+                            RequestVulnerability):socket_data.find(" HTTP/")]
                         vul_output_dir = vul_dir + RequestVulnerability + "/"
                         if not os.path.exists(vul_output_dir):
                             os.makedirs(vul_output_dir)
                         vul_api_content = "-------- VoAPI Vul API --------\n"
                         vul_api_content += "API Vul Type: " + RequestVulnerability + "\n"
                         vul_api_content += "Vul API Url: " + vul_filename[:vul_filename.find("VoAPI")] + "\n"
-                        vul_api_content += "API Vul Param: " + vul_filename[vul_filename.find("VoAPI")+len("VoAPI"):] + "\n\n"
+                        vul_api_content += "API Vul Param: " + vul_filename[
+                                                               vul_filename.find("VoAPI") + len("VoAPI"):] + "\n\n"
                         vul_filename = vul_filename.replace("/", "!")
                         vul_filename = re.sub(r'[<>:"/\\|?*]', '@', vul_filename)
-                        f = open(vul_output_dir + vul_filename,"a+")
+                        f = open(vul_output_dir + vul_filename, "a+")
                         f.write(vul_api_content)
                         f.close()
                         break
@@ -72,17 +77,21 @@ def vul_verification(verification_server, vul_dir):
             socket_conn.close()
             continue
         except Exception as e:
-            #socket_conn.close()
+            # socket_conn.close()
             print(e)
             continue
     return
 
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--verification_server_ip', help='Verification Server Ip', type=str, default="127.0.0.1", required=True)
-    parser.add_argument('--verification_server_port_for_https', help='Verification Server Port For HTTPS', type=int, default=4445, required=True)
+    parser.add_argument('--verification_server_ip', help='Verification Server Ip', type=str, default="127.0.0.1",
+                        required=True)
+    parser.add_argument('--verification_server_port_for_https', help='Verification Server Port For HTTPS', type=int,
+                        default=4445, required=True)
     parser.add_argument('--output', help='Output Dir Absolute Path', type=str, default="./", required=True)
-    parser.add_argument('--certificate_dir', help='Certificate Dir Absolute Path', type=str, default="./VoAPIVerificationCert", required=True)
+    parser.add_argument('--certificate_dir', help='Certificate Dir Absolute Path', type=str,
+                        default="./VoAPIVerificationCert", required=True)
     args = parser.parse_args()
     if args.output == "./":
         output_dir = os.path.abspath('.')
@@ -109,5 +118,7 @@ if __name__ == '__main__':
                 key_file = os.path.join(certificate_dir, file_name)
     if (not certificate_file) or (not key_file):
         certificate_file, key_file = create_cert(certificate_dir)
-    ssl_verification_server = create_verification_server(args.verification_server_ip, args.verification_server_port_for_https, certificate_file, key_file)
+    ssl_verification_server = create_verification_server(args.verification_server_ip,
+                                                         args.verification_server_port_for_https, certificate_file,
+                                                         key_file)
     vul_verification(ssl_verification_server, vul_dir)
