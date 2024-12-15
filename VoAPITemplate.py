@@ -231,6 +231,17 @@ class ApiTemplate(object):
         f.write(show_str)
         f.close()
 
+    def __str__(self):
+        return (f"api_url: {self.api_url}; "
+                f"api_method: {self.api_method}; "
+                f"api_request: {self.api_request}; "
+                f"api_response: {self.api_response}; "
+                f"api_request_value: {self.api_request_value}; "
+                f"api_response_value: {self.api_response_value}")
+
+    def __repr__(self):
+        return self.__str__()
+
 # Example:
 #     api_url = "/teams/{teamId}/memberships"
 #     api_method = "Post"

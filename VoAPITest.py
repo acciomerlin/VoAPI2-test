@@ -20,6 +20,16 @@ def candidate_apis_test(baseurl, header_dict, param_dict, output_dir, api_templa
         candidate_api_seq, candidate_api_seq_relations = reverse_sequence_construction(candidate_api_template,
                                                                                        candidate_api_producer_pool,
                                                                                        no_get_producer)
+
+        candidate_api_seq_str = "\n".join(map(str, candidate_api_seq))
+        candidate_api_seq_relations_str = "\n".join(map(str, candidate_api_seq_relations))
+        print(f'reverse_sequence_construction: \n'
+              f'candidate_api_seq:\n'
+              f'{candidate_api_seq_str}\n\n'
+              f'candidate_api_seq_relations:\n'
+              f'{candidate_api_seq_relations_str}\n'
+              f'=========================================\n')
+
         write_every_candidate_api_test_log(log_file, candidate_api_seq, candidate_api_seq_relations,
                                            candidate_api_test_types)
         finished_flag = True
