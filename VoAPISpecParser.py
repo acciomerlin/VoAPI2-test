@@ -39,14 +39,31 @@ def set_global_json():
 
 
 def publish_restler_bin(voapi_compiler_dir, voapi_compiler_output_dir):
+    """
+    发布 Restler 编译器二进制文件到指定目录，并处理可能的错误。
+    """
     current_dir = os.path.dirname(os.path.abspath(__file__))
     os.chdir(current_dir)
+
+    # 确保 global.json 文件存在
     if not os.path.exists("global.json"):
         set_global_json()
+
+    # 构建 fsproj 文件路径
     fsproj = voapi_compiler_dir + os.path.sep + "Restler.CompilerExe" + os.path.sep + "Restler.CompilerExe.fsproj"
-    subprocess.run(
-        ["dotnet", "publish", fsproj, "--no-restore", "-o", voapi_compiler_output_dir, "-c", "release", "-f", "net6.0"],
-        stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
+    print("Recompiling--------------")
+    # ！--no-restore会导致初次重新编译时缺少依赖，去掉了此参数保证每次重新编译时相关依赖存在
+    result = subprocess.run(
+        ["dotnet", "publish", fsproj, "-o", voapi_compiler_output_dir, "-c", "release", "-f", "net6.0"],
+        stdout=subprocess.PIPE, stderr=subprocess.PIPE
+    )
+    if result.returncode != 0:
+        print("Failed to publish Restler Compiler. Return code:", result.returncode)
+        print("Error output:", result.stderr.decode())
+        exit(1)
+    else:
+        print("Successfully publish Restler Compiler.\n-------------------")
 
 
 def compile_api_spec(api_spec, voapi_compiler_output_dir):
@@ -80,7 +97,9 @@ def compile_api_spec(api_spec, voapi_compiler_output_dir):
     if not os.path.exists("global.json"):
         set_global_json()
     restler_dll = voapi_compiler_output_dir + os.path.sep + "Restler.CompilerExe.dll"
-    subprocess.run(["dotnet", restler_dll, config_json_file], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    result = subprocess.run(["dotnet", restler_dll, config_json_file], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    if result.returncode != 0:
+        print("Error occurred in apispec:", result.stderr.decode())
 
 
 def main():
@@ -94,7 +113,7 @@ def main():
                         default="./APIInfo.txt", required=False)
     parser.add_argument('--recompile', action="store_true", help='Whether Need Recompile VoAPICompiler, Default: False')
     args = parser.parse_args()
-    if args.voapi_compiler_dir == "./VoAPICompiler":
+    if args.voapi_compiler_dir == "./VoAPICompiler":  # voapi compiler和 compiler bin的关系？
         voapi_compiler_dir = os.path.abspath('.') + os.path.sep + "VoAPICompiler"
     else:
         voapi_compiler_dir = args.voapi_compiler_dir
@@ -102,18 +121,25 @@ def main():
         voapi_compiler_output_dir = os.path.abspath('.') + os.path.sep + "VoAPICompilerBin"
     else:
         voapi_compiler_output_dir = args.voapi_compiler_output_dir
-    if args.restler_compile_file_path == "./APIInfo.txt":
+    if args.restler_compile_file_path == "./APIInfo.txt":  # restler编译器处理目标文件后输出文件的路径？
         restler_compile_file_path = os.path.abspath('.') + os.path.sep + "APIInfo.txt"
     else:
-        restler_compile_file_path = os.path.normpath(os.path.abspath(args.restler_compile_file_path))
+        restler_compile_file_path = os.path.normpath(os.path.abspath(args.restler_compile_file_path))  # 这是在？
     if sys.platform.startswith("win"):
         restler_compile_file_path = restler_compile_file_path.replace("\\", "\\\\")
     if args.recompile:
-        replace_compiler_fs(voapi_compiler_dir, restler_compile_file_path)
+        replace_compiler_fs(voapi_compiler_dir, restler_compile_file_path)  # 修改了apispec输出路径就要recompile，输出路径硬编码
         publish_restler_bin(voapi_compiler_dir, voapi_compiler_output_dir)
+
+    print("ApiSpec Generating--------------------")
+    print(f"Output file path: {restler_compile_file_path}")
     if os.path.exists(restler_compile_file_path):
+        print("Output file exists before processing, removing...")
         os.remove(restler_compile_file_path)
-    compile_api_spec(args.openapi, voapi_compiler_output_dir)
+    else:
+        print("Output file does not exist before processing, will create.")
+    compile_api_spec(args.openapi, voapi_compiler_output_dir)  #
+    print("ApiSpec Generation Finished!\n---------------")
 
 
 if __name__ == "__main__":

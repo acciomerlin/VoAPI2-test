@@ -1,8 +1,8 @@
 {
   "SwaggerSpecFilePath": [
-    "D:\\workspace\\NSSL\\VoAPI2-github\\AppwriteExample\\APISpec-appwrite.json"
+    "RbasketExample/rbaskets-openapi.yaml"
   ],
-  "GrammarOutputDirectoryPath": "D:\\workspace\\NSSL\\VoAPI2-github\\VoAPICompilerBin\\Compile",
+  "GrammarOutputDirectoryPath": "VoAPICompilerBin/Compile",
   "IncludeOptionalParameters": true,
   "UseHeaderExamples": false,
   "UsePathExamples": false,

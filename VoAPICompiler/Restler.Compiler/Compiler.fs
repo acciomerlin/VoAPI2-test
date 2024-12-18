@@ -1270,7 +1270,7 @@ let generateRequestGrammar (swaggerDocs:Types.ApiSpecFuzzingConfig list)
                         // let infoStr = sprintf "requestId:%O\nrequestParameters:%O\nresponse:%s\n#############\n" requestId requestParameters responseStr
                         let infoStr = sprintf "requestId:%O\nrequestParameters:%O\nresponse:%O\n#############\n" requestId requestParameters responseStr
                         // VoAPI Parser
-                        File.AppendAllText("D:\\workspace\\NSSL\\VoAPI2-github\\appwrite.txt", infoStr)
+                        File.AppendAllText("/Users/acciomac/Desktop/repo/VoAPI2-test/RbasketExample/APIInfo-rbaskets.txt", infoStr)
                         // VoAPI Parser End
                         yield (requestId, { RequestData.requestParameters = requestParameters
                                             localAnnotations = localAnnotations

@@ -1,0 +1,1315 @@
+requestId:{ endpoint = "/api/version"
+  xMsPath = None
+  method = Get }
+requestParameters:{path = ParameterList 
+ ( seq [  ] ) 
+ header = [ (Schema, ParameterList 
+ ( seq [  ] )) ] 
+ query = [ (Schema, ParameterList 
+ ( seq [  ] )) ] 
+ body = [ (Schema, ParameterList 
+ ( seq [  ] )) ] }
+response:Some {bodyResponse = Some(InternalNode ({ name = ""
+  payload = None
+  propertyType = Object
+  isRequired = true
+  isReadOnly = false }, seq [ LeafNode { name = "name"
+  payload = Fuzzable { primitiveType = String
+                       defaultValue = "RESTlerString"
+                       exampleValue = Some "request-baskets"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false };
+ LeafNode { name = "version"
+  payload = Fuzzable { primitiveType = String
+                       defaultValue = "RESTlerString"
+                       exampleValue = Some "v1.0.0"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false };
+ LeafNode { name = "commit"
+  payload =
+           Fuzzable
+             { primitiveType = String
+               defaultValue = "RESTlerString"
+               exampleValue = Some "4cc08434223ff04fbe2e45f2f6eeb9b0a39a279e"
+               parameterName = None
+               dynamicObject = None }
+  isRequired = false
+  isReadOnly = false };
+ LeafNode { name = "commit_short"
+  payload = Fuzzable { primitiveType = String
+                       defaultValue = "RESTlerString"
+                       exampleValue = Some "4cc0843"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false };
+ LeafNode { name = "source_code"
+  payload =
+           Fuzzable
+             { primitiveType = String
+               defaultValue = "RESTlerString"
+               exampleValue = Some "https://github.com/darklynx/request-baskets"
+               parameterName = None
+               dynamicObject = None }
+  isRequired = false
+  isReadOnly = false } ] ))
+ headerResponse = []
+ linkAnnotations = seq []}
+#############
+requestId:{ endpoint = "/api/stats"
+  xMsPath = None
+  method = Get }
+requestParameters:{path = ParameterList 
+ ( seq [  ] ) 
+ header = [ (Schema, ParameterList 
+ ( seq [  ] )) ] 
+ query = [ (Schema, ParameterList 
+ ( seq [ {name = "max" 
+ payload = LeafNode { name = ""
+  payload = Fuzzable { primitiveType = Int
+                       defaultValue = "RESTlerInt"
+                       exampleValue = None
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false } 
+ serialization = None } ] )) ] 
+ body = [ (Schema, ParameterList 
+ ( seq [  ] )) ] }
+response:Some {bodyResponse = Some(InternalNode ({ name = ""
+  payload = None
+  propertyType = Object
+  isRequired = true
+  isReadOnly = false }, seq [ LeafNode { name = "baskets_count"
+  payload = Fuzzable { primitiveType = Int
+                       defaultValue = "RESTlerInt"
+                       exampleValue = Some "28"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false };
+ LeafNode { name = "empty_baskets_count"
+  payload = Fuzzable { primitiveType = Int
+                       defaultValue = "RESTlerInt"
+                       exampleValue = Some "12"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false };
+ LeafNode { name = "requests_count"
+  payload = Fuzzable { primitiveType = Int
+                       defaultValue = "RESTlerInt"
+                       exampleValue = Some "5120"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false };
+ LeafNode { name = "requests_total_count"
+  payload = Fuzzable { primitiveType = Int
+                       defaultValue = "RESTlerInt"
+                       exampleValue = Some "21847"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false };
+ LeafNode { name = "max_basket_size"
+  payload = Fuzzable { primitiveType = Int
+                       defaultValue = "RESTlerInt"
+                       exampleValue = Some "1027"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false };
+ LeafNode { name = "avg_basket_size"
+  payload = Fuzzable { primitiveType = Int
+                       defaultValue = "RESTlerInt"
+                       exampleValue = Some "217"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false };
+ InternalNode ({ name = "top_baskets_size"
+  payload = None
+  propertyType = Array
+  isRequired = false
+  isReadOnly = false }, seq [ InternalNode ({ name = ""
+  payload = None
+  propertyType = Object
+  isRequired = false
+  isReadOnly = false }, seq [ LeafNode { name = "name"
+  payload = Fuzzable { primitiveType = String
+                       defaultValue = "RESTlerString"
+                       exampleValue = Some "basket22"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false };
+ LeafNode { name = "requests_count"
+  payload = Fuzzable { primitiveType = Int
+                       defaultValue = "RESTlerInt"
+                       exampleValue = Some "62"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false };
+ LeafNode { name = "requests_total_count"
+  payload = Fuzzable { primitiveType = Int
+                       defaultValue = "RESTlerInt"
+                       exampleValue = Some "315"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false };
+ LeafNode { name = "last_request_date"
+  payload = Fuzzable { primitiveType = Int
+                       defaultValue = "RESTlerInt"
+                       exampleValue = Some "1550106301288"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false } ] ) ] );
+ InternalNode ({ name = "top_baskets_recent"
+  payload = None
+  propertyType = Array
+  isRequired = false
+  isReadOnly = false }, seq [ InternalNode ({ name = ""
+  payload = None
+  propertyType = Object
+  isRequired = false
+  isReadOnly = false }, seq [ LeafNode { name = "name"
+  payload = Fuzzable { primitiveType = String
+                       defaultValue = "RESTlerString"
+                       exampleValue = Some "basket22"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false };
+ LeafNode { name = "requests_count"
+  payload = Fuzzable { primitiveType = Int
+                       defaultValue = "RESTlerInt"
+                       exampleValue = Some "62"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false };
+ LeafNode { name = "requests_total_count"
+  payload = Fuzzable { primitiveType = Int
+                       defaultValue = "RESTlerInt"
+                       exampleValue = Some "315"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false };
+ LeafNode { name = "last_request_date"
+  payload = Fuzzable { primitiveType = Int
+                       defaultValue = "RESTlerInt"
+                       exampleValue = Some "1550106301288"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false } ] ) ] ) ] ))
+ headerResponse = []
+ linkAnnotations = seq []}
+#############
+requestId:{ endpoint = "/api/baskets"
+  xMsPath = None
+  method = Get }
+requestParameters:{path = ParameterList 
+ ( seq [  ] ) 
+ header = [ (Schema, ParameterList 
+ ( seq [  ] )) ] 
+ query = [ (Schema, ParameterList 
+ ( seq [ {name = "max" 
+ payload = LeafNode { name = ""
+  payload = Fuzzable { primitiveType = Int
+                       defaultValue = "RESTlerInt"
+                       exampleValue = None
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false } 
+ serialization = None };
+ {name = "skip" 
+ payload = LeafNode { name = ""
+  payload = Fuzzable { primitiveType = Int
+                       defaultValue = "RESTlerInt"
+                       exampleValue = None
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false } 
+ serialization = None };
+ {name = "q" 
+ payload = LeafNode { name = ""
+  payload = Fuzzable { primitiveType = String
+                       defaultValue = "RESTlerString"
+                       exampleValue = None
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false } 
+ serialization = None } ] )) ] 
+ body = [ (Schema, ParameterList 
+ ( seq [  ] )) ] }
+response:Some {bodyResponse = Some(InternalNode ({ name = ""
+  payload = None
+  propertyType = Object
+  isRequired = true
+  isReadOnly = false }, seq [ InternalNode ({ name = "names"
+  payload = None
+  propertyType = Array
+  isRequired = true
+  isReadOnly = false }, seq [ LeafNode { name = ""
+  payload = Fuzzable { primitiveType = String
+                       defaultValue = "RESTlerString"
+                       exampleValue = Some "basket22"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = true
+  isReadOnly = false };
+ LeafNode { name = ""
+  payload = Fuzzable { primitiveType = String
+                       defaultValue = "RESTlerString"
+                       exampleValue = Some "mybasket"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = true
+  isReadOnly = false };
+ LeafNode { name = ""
+  payload = Fuzzable { primitiveType = String
+                       defaultValue = "RESTlerString"
+                       exampleValue = Some "test123"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = true
+  isReadOnly = false } ] );
+ LeafNode { name = "count"
+  payload = Fuzzable { primitiveType = Int
+                       defaultValue = "RESTlerInt"
+                       exampleValue = Some "118"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false };
+ LeafNode { name = "has_more"
+  payload = Fuzzable { primitiveType = Bool
+                       defaultValue = "RESTlerBool"
+                       exampleValue = Some "true"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = true
+  isReadOnly = false } ] ))
+ headerResponse = []
+ linkAnnotations = seq []}
+#############
+requestId:{ endpoint = "/api/baskets/{name}"
+  xMsPath = None
+  method = Post }
+requestParameters:{path = ParameterList 
+ ( seq [ {name = "name" 
+ payload = LeafNode { name = ""
+  payload = Fuzzable { primitiveType = String
+                       defaultValue = "RESTlerString"
+                       exampleValue = None
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = true
+  isReadOnly = false } 
+ serialization = None } ] ) 
+ header = [ (Schema, ParameterList 
+ ( seq [  ] )) ] 
+ query = [ (Schema, ParameterList 
+ ( seq [  ] )) ] 
+ body = [ (Schema, ParameterList 
+ ( seq [  ] )) ] }
+response:Some {bodyResponse = Some(InternalNode ({ name = ""
+  payload = None
+  propertyType = Object
+  isRequired = true
+  isReadOnly = false }, seq [ LeafNode { name = "token"
+  payload = Fuzzable { primitiveType = String
+                       defaultValue = "RESTlerString"
+                       exampleValue = Some "MJeIzgE1D6aze..."
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = true
+  isReadOnly = false } ] ))
+ headerResponse = []
+ linkAnnotations = seq []}
+#############
+requestId:{ endpoint = "/api/baskets/{name}"
+  xMsPath = None
+  method = Get }
+requestParameters:{path = ParameterList 
+ ( seq [ {name = "name" 
+ payload = LeafNode { name = ""
+  payload = Fuzzable { primitiveType = String
+                       defaultValue = "RESTlerString"
+                       exampleValue = None
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = true
+  isReadOnly = false } 
+ serialization = None } ] ) 
+ header = [ (Schema, ParameterList 
+ ( seq [  ] )) ] 
+ query = [ (Schema, ParameterList 
+ ( seq [  ] )) ] 
+ body = [ (Schema, ParameterList 
+ ( seq [  ] )) ] }
+response:Some {bodyResponse = Some(InternalNode ({ name = ""
+  payload = None
+  propertyType = Object
+  isRequired = true
+  isReadOnly = false }, seq [ LeafNode { name = "forward_url"
+  payload =
+           Fuzzable
+             { primitiveType = String
+               defaultValue = "RESTlerString"
+               exampleValue =
+                             Some
+                               "https://myservice.example.com/events-collector"
+               parameterName = None
+               dynamicObject = None }
+  isRequired = false
+  isReadOnly = false };
+ LeafNode { name = "proxy_response"
+  payload = Fuzzable { primitiveType = Bool
+                       defaultValue = "RESTlerBool"
+                       exampleValue = Some "false"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false };
+ LeafNode { name = "insecure_tls"
+  payload = Fuzzable { primitiveType = Bool
+                       defaultValue = "RESTlerBool"
+                       exampleValue = Some "false"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false };
+ LeafNode { name = "expand_path"
+  payload = Fuzzable { primitiveType = Bool
+                       defaultValue = "RESTlerBool"
+                       exampleValue = Some "true"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false };
+ LeafNode { name = "capacity"
+  payload = Fuzzable { primitiveType = Int
+                       defaultValue = "RESTlerInt"
+                       exampleValue = Some "250"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false } ] ))
+ headerResponse = []
+ linkAnnotations = seq []}
+#############
+requestId:{ endpoint = "/api/baskets/{name}"
+  xMsPath = None
+  method = Put }
+requestParameters:{path = ParameterList 
+ ( seq [ {name = "name" 
+ payload = LeafNode { name = ""
+  payload = Fuzzable { primitiveType = String
+                       defaultValue = "RESTlerString"
+                       exampleValue = None
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = true
+  isReadOnly = false } 
+ serialization = None } ] ) 
+ header = [ (Schema, ParameterList 
+ ( seq [  ] )) ] 
+ query = [ (Schema, ParameterList 
+ ( seq [  ] )) ] 
+ body = [ (Schema, ParameterList 
+ ( seq [  ] )) ] }
+response:Some {bodyResponse = <null>
+ headerResponse = []
+ linkAnnotations = seq []}
+#############
+requestId:{ endpoint = "/api/baskets/{name}"
+  xMsPath = None
+  method = Delete }
+requestParameters:{path = ParameterList 
+ ( seq [ {name = "name" 
+ payload = LeafNode { name = ""
+  payload = Fuzzable { primitiveType = String
+                       defaultValue = "RESTlerString"
+                       exampleValue = None
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = true
+  isReadOnly = false } 
+ serialization = None } ] ) 
+ header = [ (Schema, ParameterList 
+ ( seq [  ] )) ] 
+ query = [ (Schema, ParameterList 
+ ( seq [  ] )) ] 
+ body = [ (Schema, ParameterList 
+ ( seq [  ] )) ] }
+response:Some {bodyResponse = <null>
+ headerResponse = []
+ linkAnnotations = seq []}
+#############
+requestId:{ endpoint = "/api/baskets/{name}/responses/{method}"
+  xMsPath = None
+  method = Get }
+requestParameters:{path = ParameterList 
+ ( seq [ {name = "name" 
+ payload = LeafNode { name = ""
+  payload = Fuzzable { primitiveType = String
+                       defaultValue = "RESTlerString"
+                       exampleValue = None
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = true
+  isReadOnly = false } 
+ serialization = None };
+ {name = "method" 
+ payload = LeafNode { name = ""
+  payload =
+           Fuzzable
+             { primitiveType =
+                              Enum
+                                ("method", String,
+                                 ["GET"; "HEAD"; "POST"; "PUT"; "PATCH";
+                                  "DELETE"; "CONNECT"; "OPTIONS"; "TRACE"], None)
+               defaultValue = "GET"
+               exampleValue = None
+               parameterName = None
+               dynamicObject = None }
+  isRequired = true
+  isReadOnly = false } 
+ serialization = None } ] ) 
+ header = [ (Schema, ParameterList 
+ ( seq [  ] )) ] 
+ query = [ (Schema, ParameterList 
+ ( seq [  ] )) ] 
+ body = [ (Schema, ParameterList 
+ ( seq [  ] )) ] }
+response:Some {bodyResponse = Some(InternalNode ({ name = ""
+  payload = None
+  propertyType = Object
+  isRequired = true
+  isReadOnly = false }, seq [ LeafNode { name = "status"
+  payload = Fuzzable { primitiveType = Int
+                       defaultValue = "RESTlerInt"
+                       exampleValue = Some "200"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false };
+ InternalNode ({ name = "headers"
+  payload = None
+  propertyType = Property
+  isRequired = false
+  isReadOnly = false }, seq [ LeafNode { name = ""
+  payload =
+           Constant
+             (Object,
+              "{"Content-Type":["application/json"],"Accept":["application/json","application/xml"],"Connection":["close"]}")
+  isRequired = false
+  isReadOnly = false } ] );
+ LeafNode { name = "body"
+  payload = Fuzzable { primitiveType = String
+                       defaultValue = "RESTlerString"
+                       exampleValue = Some "Success"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false };
+ LeafNode { name = "is_template"
+  payload = Fuzzable { primitiveType = Bool
+                       defaultValue = "RESTlerBool"
+                       exampleValue = Some "false"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false } ] ))
+ headerResponse = []
+ linkAnnotations = seq []}
+#############
+requestId:{ endpoint = "/api/baskets/{name}/responses/{method}"
+  xMsPath = None
+  method = Put }
+requestParameters:{path = ParameterList 
+ ( seq [ {name = "name" 
+ payload = LeafNode { name = ""
+  payload = Fuzzable { primitiveType = String
+                       defaultValue = "RESTlerString"
+                       exampleValue = None
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = true
+  isReadOnly = false } 
+ serialization = None };
+ {name = "method" 
+ payload = LeafNode { name = ""
+  payload =
+           Fuzzable
+             { primitiveType =
+                              Enum
+                                ("method", String,
+                                 ["GET"; "HEAD"; "POST"; "PUT"; "PATCH";
+                                  "DELETE"; "CONNECT"; "OPTIONS"; "TRACE"], None)
+               defaultValue = "GET"
+               exampleValue = None
+               parameterName = None
+               dynamicObject = None }
+  isRequired = true
+  isReadOnly = false } 
+ serialization = None } ] ) 
+ header = [ (Schema, ParameterList 
+ ( seq [  ] )) ] 
+ query = [ (Schema, ParameterList 
+ ( seq [  ] )) ] 
+ body = [ (Schema, ParameterList 
+ ( seq [  ] )) ] }
+response:Some {bodyResponse = <null>
+ headerResponse = []
+ linkAnnotations = seq []}
+#############
+requestId:{ endpoint = "/api/baskets/{name}/requests"
+  xMsPath = None
+  method = Get }
+requestParameters:{path = ParameterList 
+ ( seq [ {name = "name" 
+ payload = LeafNode { name = ""
+  payload = Fuzzable { primitiveType = String
+                       defaultValue = "RESTlerString"
+                       exampleValue = None
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = true
+  isReadOnly = false } 
+ serialization = None } ] ) 
+ header = [ (Schema, ParameterList 
+ ( seq [  ] )) ] 
+ query = [ (Schema, ParameterList 
+ ( seq [ {name = "max" 
+ payload = LeafNode { name = ""
+  payload = Fuzzable { primitiveType = Int
+                       defaultValue = "RESTlerInt"
+                       exampleValue = None
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false } 
+ serialization = None };
+ {name = "skip" 
+ payload = LeafNode { name = ""
+  payload = Fuzzable { primitiveType = Int
+                       defaultValue = "RESTlerInt"
+                       exampleValue = None
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false } 
+ serialization = None };
+ {name = "q" 
+ payload = LeafNode { name = ""
+  payload = Fuzzable { primitiveType = String
+                       defaultValue = "RESTlerString"
+                       exampleValue = None
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false } 
+ serialization = None };
+ {name = "in" 
+ payload = LeafNode { name = ""
+  payload =
+           Fuzzable
+             { primitiveType =
+                              Enum
+                                ("in", String,
+                                 ["any"; "body"; "query"; "headers"], Some "any")
+               defaultValue = "any"
+               exampleValue = None
+               parameterName = None
+               dynamicObject = None }
+  isRequired = false
+  isReadOnly = false } 
+ serialization = None } ] )) ] 
+ body = [ (Schema, ParameterList 
+ ( seq [  ] )) ] }
+response:Some {bodyResponse = Some(InternalNode ({ name = ""
+  payload = None
+  propertyType = Object
+  isRequired = true
+  isReadOnly = false }, seq [ InternalNode ({ name = "requests"
+  payload = None
+  propertyType = Array
+  isRequired = true
+  isReadOnly = false }, seq [ InternalNode ({ name = ""
+  payload = None
+  propertyType = Object
+  isRequired = true
+  isReadOnly = false }, seq [ LeafNode { name = "date"
+  payload = Fuzzable { primitiveType = Int
+                       defaultValue = "RESTlerInt"
+                       exampleValue = Some "1550300604712"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false };
+ InternalNode ({ name = "headers"
+  payload = None
+  propertyType = Property
+  isRequired = false
+  isReadOnly = false }, seq [ LeafNode { name = ""
+  payload =
+           Constant
+             (Object,
+              "{"Content-Type":["application/json"],"Accept":["application/json","application/xml"],"Connection":["close"]}")
+  isRequired = false
+  isReadOnly = false } ] );
+ LeafNode { name = "content_length"
+  payload = Fuzzable { primitiveType = Int
+                       defaultValue = "RESTlerInt"
+                       exampleValue = Some "24"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false };
+ LeafNode { name = "body"
+  payload = Fuzzable { primitiveType = String
+                       defaultValue = "RESTlerString"
+                       exampleValue = Some "user=abc_test&status=200"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false };
+ LeafNode { name = "method"
+  payload = Fuzzable { primitiveType = String
+                       defaultValue = "RESTlerString"
+                       exampleValue = Some "POST"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false };
+ LeafNode { name = "path"
+  payload = Fuzzable { primitiveType = String
+                       defaultValue = "RESTlerString"
+                       exampleValue = Some "/basket1/data"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false };
+ LeafNode { name = "query"
+  payload = Fuzzable { primitiveType = String
+                       defaultValue = "RESTlerString"
+                       exampleValue = Some "name=basket1&version=12"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false } ] ) ] );
+ LeafNode { name = "count"
+  payload = Fuzzable { primitiveType = Int
+                       defaultValue = "RESTlerInt"
+                       exampleValue = Some "200"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false };
+ LeafNode { name = "total_count"
+  payload = Fuzzable { primitiveType = Int
+                       defaultValue = "RESTlerInt"
+                       exampleValue = Some "3023"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false };
+ LeafNode { name = "has_more"
+  payload = Fuzzable { primitiveType = Bool
+                       defaultValue = "RESTlerBool"
+                       exampleValue = Some "true"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = true
+  isReadOnly = false } ] ))
+ headerResponse = []
+ linkAnnotations = seq []}
+#############
+requestId:{ endpoint = "/api/baskets/{name}/requests"
+  xMsPath = None
+  method = Delete }
+requestParameters:{path = ParameterList 
+ ( seq [ {name = "name" 
+ payload = LeafNode { name = ""
+  payload = Fuzzable { primitiveType = String
+                       defaultValue = "RESTlerString"
+                       exampleValue = None
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = true
+  isReadOnly = false } 
+ serialization = None } ] ) 
+ header = [ (Schema, ParameterList 
+ ( seq [  ] )) ] 
+ query = [ (Schema, ParameterList 
+ ( seq [  ] )) ] 
+ body = [ (Schema, ParameterList 
+ ( seq [  ] )) ] }
+response:Some {bodyResponse = <null>
+ headerResponse = []
+ linkAnnotations = seq []}
+#############
+requestId:{ endpoint = "/baskets"
+  xMsPath = None
+  method = Get }
+requestParameters:{path = ParameterList 
+ ( seq [  ] ) 
+ header = [ (Schema, ParameterList 
+ ( seq [  ] )) ] 
+ query = [ (Schema, ParameterList 
+ ( seq [ {name = "max" 
+ payload = LeafNode { name = ""
+  payload = Fuzzable { primitiveType = Int
+                       defaultValue = "RESTlerInt"
+                       exampleValue = None
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false } 
+ serialization = None };
+ {name = "skip" 
+ payload = LeafNode { name = ""
+  payload = Fuzzable { primitiveType = Int
+                       defaultValue = "RESTlerInt"
+                       exampleValue = None
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false } 
+ serialization = None };
+ {name = "q" 
+ payload = LeafNode { name = ""
+  payload = Fuzzable { primitiveType = String
+                       defaultValue = "RESTlerString"
+                       exampleValue = None
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false } 
+ serialization = None } ] )) ] 
+ body = [ (Schema, ParameterList 
+ ( seq [  ] )) ] }
+response:Some {bodyResponse = Some(InternalNode ({ name = ""
+  payload = None
+  propertyType = Object
+  isRequired = true
+  isReadOnly = false }, seq [ InternalNode ({ name = "names"
+  payload = None
+  propertyType = Array
+  isRequired = true
+  isReadOnly = false }, seq [ LeafNode { name = ""
+  payload = Fuzzable { primitiveType = String
+                       defaultValue = "RESTlerString"
+                       exampleValue = Some "basket22"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = true
+  isReadOnly = false };
+ LeafNode { name = ""
+  payload = Fuzzable { primitiveType = String
+                       defaultValue = "RESTlerString"
+                       exampleValue = Some "mybasket"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = true
+  isReadOnly = false };
+ LeafNode { name = ""
+  payload = Fuzzable { primitiveType = String
+                       defaultValue = "RESTlerString"
+                       exampleValue = Some "test123"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = true
+  isReadOnly = false } ] );
+ LeafNode { name = "count"
+  payload = Fuzzable { primitiveType = Int
+                       defaultValue = "RESTlerInt"
+                       exampleValue = Some "118"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false };
+ LeafNode { name = "has_more"
+  payload = Fuzzable { primitiveType = Bool
+                       defaultValue = "RESTlerBool"
+                       exampleValue = Some "true"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = true
+  isReadOnly = false } ] ))
+ headerResponse = []
+ linkAnnotations = seq []}
+#############
+requestId:{ endpoint = "/baskets/{name}"
+  xMsPath = None
+  method = Post }
+requestParameters:{path = ParameterList 
+ ( seq [ {name = "name" 
+ payload = LeafNode { name = ""
+  payload = Fuzzable { primitiveType = String
+                       defaultValue = "RESTlerString"
+                       exampleValue = None
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = true
+  isReadOnly = false } 
+ serialization = None } ] ) 
+ header = [ (Schema, ParameterList 
+ ( seq [  ] )) ] 
+ query = [ (Schema, ParameterList 
+ ( seq [  ] )) ] 
+ body = [ (Schema, ParameterList 
+ ( seq [  ] )) ] }
+response:Some {bodyResponse = Some(InternalNode ({ name = ""
+  payload = None
+  propertyType = Object
+  isRequired = true
+  isReadOnly = false }, seq [ LeafNode { name = "token"
+  payload = Fuzzable { primitiveType = String
+                       defaultValue = "RESTlerString"
+                       exampleValue = Some "MJeIzgE1D6aze..."
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = true
+  isReadOnly = false } ] ))
+ headerResponse = []
+ linkAnnotations = seq []}
+#############
+requestId:{ endpoint = "/baskets/{name}"
+  xMsPath = None
+  method = Get }
+requestParameters:{path = ParameterList 
+ ( seq [ {name = "name" 
+ payload = LeafNode { name = ""
+  payload = Fuzzable { primitiveType = String
+                       defaultValue = "RESTlerString"
+                       exampleValue = None
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = true
+  isReadOnly = false } 
+ serialization = None } ] ) 
+ header = [ (Schema, ParameterList 
+ ( seq [  ] )) ] 
+ query = [ (Schema, ParameterList 
+ ( seq [  ] )) ] 
+ body = [ (Schema, ParameterList 
+ ( seq [  ] )) ] }
+response:Some {bodyResponse = Some(InternalNode ({ name = ""
+  payload = None
+  propertyType = Object
+  isRequired = true
+  isReadOnly = false }, seq [ LeafNode { name = "forward_url"
+  payload =
+           Fuzzable
+             { primitiveType = String
+               defaultValue = "RESTlerString"
+               exampleValue =
+                             Some
+                               "https://myservice.example.com/events-collector"
+               parameterName = None
+               dynamicObject = None }
+  isRequired = false
+  isReadOnly = false };
+ LeafNode { name = "proxy_response"
+  payload = Fuzzable { primitiveType = Bool
+                       defaultValue = "RESTlerBool"
+                       exampleValue = Some "false"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false };
+ LeafNode { name = "insecure_tls"
+  payload = Fuzzable { primitiveType = Bool
+                       defaultValue = "RESTlerBool"
+                       exampleValue = Some "false"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false };
+ LeafNode { name = "expand_path"
+  payload = Fuzzable { primitiveType = Bool
+                       defaultValue = "RESTlerBool"
+                       exampleValue = Some "true"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false };
+ LeafNode { name = "capacity"
+  payload = Fuzzable { primitiveType = Int
+                       defaultValue = "RESTlerInt"
+                       exampleValue = Some "250"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false } ] ))
+ headerResponse = []
+ linkAnnotations = seq []}
+#############
+requestId:{ endpoint = "/baskets/{name}"
+  xMsPath = None
+  method = Put }
+requestParameters:{path = ParameterList 
+ ( seq [ {name = "name" 
+ payload = LeafNode { name = ""
+  payload = Fuzzable { primitiveType = String
+                       defaultValue = "RESTlerString"
+                       exampleValue = None
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = true
+  isReadOnly = false } 
+ serialization = None } ] ) 
+ header = [ (Schema, ParameterList 
+ ( seq [  ] )) ] 
+ query = [ (Schema, ParameterList 
+ ( seq [  ] )) ] 
+ body = [ (Schema, ParameterList 
+ ( seq [  ] )) ] }
+response:Some {bodyResponse = <null>
+ headerResponse = []
+ linkAnnotations = seq []}
+#############
+requestId:{ endpoint = "/baskets/{name}"
+  xMsPath = None
+  method = Delete }
+requestParameters:{path = ParameterList 
+ ( seq [ {name = "name" 
+ payload = LeafNode { name = ""
+  payload = Fuzzable { primitiveType = String
+                       defaultValue = "RESTlerString"
+                       exampleValue = None
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = true
+  isReadOnly = false } 
+ serialization = None } ] ) 
+ header = [ (Schema, ParameterList 
+ ( seq [  ] )) ] 
+ query = [ (Schema, ParameterList 
+ ( seq [  ] )) ] 
+ body = [ (Schema, ParameterList 
+ ( seq [  ] )) ] }
+response:Some {bodyResponse = <null>
+ headerResponse = []
+ linkAnnotations = seq []}
+#############
+requestId:{ endpoint = "/baskets/{name}/responses/{method}"
+  xMsPath = None
+  method = Get }
+requestParameters:{path = ParameterList 
+ ( seq [ {name = "name" 
+ payload = LeafNode { name = ""
+  payload = Fuzzable { primitiveType = String
+                       defaultValue = "RESTlerString"
+                       exampleValue = None
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = true
+  isReadOnly = false } 
+ serialization = None };
+ {name = "method" 
+ payload = LeafNode { name = ""
+  payload =
+           Fuzzable
+             { primitiveType =
+                              Enum
+                                ("method", String,
+                                 ["GET"; "HEAD"; "POST"; "PUT"; "PATCH";
+                                  "DELETE"; "CONNECT"; "OPTIONS"; "TRACE"], None)
+               defaultValue = "GET"
+               exampleValue = None
+               parameterName = None
+               dynamicObject = None }
+  isRequired = true
+  isReadOnly = false } 
+ serialization = None } ] ) 
+ header = [ (Schema, ParameterList 
+ ( seq [  ] )) ] 
+ query = [ (Schema, ParameterList 
+ ( seq [  ] )) ] 
+ body = [ (Schema, ParameterList 
+ ( seq [  ] )) ] }
+response:Some {bodyResponse = Some(InternalNode ({ name = ""
+  payload = None
+  propertyType = Object
+  isRequired = true
+  isReadOnly = false }, seq [ LeafNode { name = "status"
+  payload = Fuzzable { primitiveType = Int
+                       defaultValue = "RESTlerInt"
+                       exampleValue = Some "200"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false };
+ InternalNode ({ name = "headers"
+  payload = None
+  propertyType = Property
+  isRequired = false
+  isReadOnly = false }, seq [ LeafNode { name = ""
+  payload =
+           Constant
+             (Object,
+              "{"Content-Type":["application/json"],"Accept":["application/json","application/xml"],"Connection":["close"]}")
+  isRequired = false
+  isReadOnly = false } ] );
+ LeafNode { name = "body"
+  payload = Fuzzable { primitiveType = String
+                       defaultValue = "RESTlerString"
+                       exampleValue = Some "Success"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false };
+ LeafNode { name = "is_template"
+  payload = Fuzzable { primitiveType = Bool
+                       defaultValue = "RESTlerBool"
+                       exampleValue = Some "false"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false } ] ))
+ headerResponse = []
+ linkAnnotations = seq []}
+#############
+requestId:{ endpoint = "/baskets/{name}/responses/{method}"
+  xMsPath = None
+  method = Put }
+requestParameters:{path = ParameterList 
+ ( seq [ {name = "name" 
+ payload = LeafNode { name = ""
+  payload = Fuzzable { primitiveType = String
+                       defaultValue = "RESTlerString"
+                       exampleValue = None
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = true
+  isReadOnly = false } 
+ serialization = None };
+ {name = "method" 
+ payload = LeafNode { name = ""
+  payload =
+           Fuzzable
+             { primitiveType =
+                              Enum
+                                ("method", String,
+                                 ["GET"; "HEAD"; "POST"; "PUT"; "PATCH";
+                                  "DELETE"; "CONNECT"; "OPTIONS"; "TRACE"], None)
+               defaultValue = "GET"
+               exampleValue = None
+               parameterName = None
+               dynamicObject = None }
+  isRequired = true
+  isReadOnly = false } 
+ serialization = None } ] ) 
+ header = [ (Schema, ParameterList 
+ ( seq [  ] )) ] 
+ query = [ (Schema, ParameterList 
+ ( seq [  ] )) ] 
+ body = [ (Schema, ParameterList 
+ ( seq [  ] )) ] }
+response:Some {bodyResponse = <null>
+ headerResponse = []
+ linkAnnotations = seq []}
+#############
+requestId:{ endpoint = "/baskets/{name}/requests"
+  xMsPath = None
+  method = Get }
+requestParameters:{path = ParameterList 
+ ( seq [ {name = "name" 
+ payload = LeafNode { name = ""
+  payload = Fuzzable { primitiveType = String
+                       defaultValue = "RESTlerString"
+                       exampleValue = None
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = true
+  isReadOnly = false } 
+ serialization = None } ] ) 
+ header = [ (Schema, ParameterList 
+ ( seq [  ] )) ] 
+ query = [ (Schema, ParameterList 
+ ( seq [ {name = "max" 
+ payload = LeafNode { name = ""
+  payload = Fuzzable { primitiveType = Int
+                       defaultValue = "RESTlerInt"
+                       exampleValue = None
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false } 
+ serialization = None };
+ {name = "skip" 
+ payload = LeafNode { name = ""
+  payload = Fuzzable { primitiveType = Int
+                       defaultValue = "RESTlerInt"
+                       exampleValue = None
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false } 
+ serialization = None };
+ {name = "q" 
+ payload = LeafNode { name = ""
+  payload = Fuzzable { primitiveType = String
+                       defaultValue = "RESTlerString"
+                       exampleValue = None
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false } 
+ serialization = None };
+ {name = "in" 
+ payload = LeafNode { name = ""
+  payload =
+           Fuzzable
+             { primitiveType =
+                              Enum
+                                ("in", String,
+                                 ["any"; "body"; "query"; "headers"], Some "any")
+               defaultValue = "any"
+               exampleValue = None
+               parameterName = None
+               dynamicObject = None }
+  isRequired = false
+  isReadOnly = false } 
+ serialization = None } ] )) ] 
+ body = [ (Schema, ParameterList 
+ ( seq [  ] )) ] }
+response:Some {bodyResponse = Some(InternalNode ({ name = ""
+  payload = None
+  propertyType = Object
+  isRequired = true
+  isReadOnly = false }, seq [ InternalNode ({ name = "requests"
+  payload = None
+  propertyType = Array
+  isRequired = true
+  isReadOnly = false }, seq [ InternalNode ({ name = ""
+  payload = None
+  propertyType = Object
+  isRequired = true
+  isReadOnly = false }, seq [ LeafNode { name = "date"
+  payload = Fuzzable { primitiveType = Int
+                       defaultValue = "RESTlerInt"
+                       exampleValue = Some "1550300604712"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false };
+ InternalNode ({ name = "headers"
+  payload = None
+  propertyType = Property
+  isRequired = false
+  isReadOnly = false }, seq [ LeafNode { name = ""
+  payload =
+           Constant
+             (Object,
+              "{"Content-Type":["application/json"],"Accept":["application/json","application/xml"],"Connection":["close"]}")
+  isRequired = false
+  isReadOnly = false } ] );
+ LeafNode { name = "content_length"
+  payload = Fuzzable { primitiveType = Int
+                       defaultValue = "RESTlerInt"
+                       exampleValue = Some "24"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false };
+ LeafNode { name = "body"
+  payload = Fuzzable { primitiveType = String
+                       defaultValue = "RESTlerString"
+                       exampleValue = Some "user=abc_test&status=200"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false };
+ LeafNode { name = "method"
+  payload = Fuzzable { primitiveType = String
+                       defaultValue = "RESTlerString"
+                       exampleValue = Some "POST"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false };
+ LeafNode { name = "path"
+  payload = Fuzzable { primitiveType = String
+                       defaultValue = "RESTlerString"
+                       exampleValue = Some "/basket1/data"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false };
+ LeafNode { name = "query"
+  payload = Fuzzable { primitiveType = String
+                       defaultValue = "RESTlerString"
+                       exampleValue = Some "name=basket1&version=12"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false } ] ) ] );
+ LeafNode { name = "count"
+  payload = Fuzzable { primitiveType = Int
+                       defaultValue = "RESTlerInt"
+                       exampleValue = Some "200"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false };
+ LeafNode { name = "total_count"
+  payload = Fuzzable { primitiveType = Int
+                       defaultValue = "RESTlerInt"
+                       exampleValue = Some "3023"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = false
+  isReadOnly = false };
+ LeafNode { name = "has_more"
+  payload = Fuzzable { primitiveType = Bool
+                       defaultValue = "RESTlerBool"
+                       exampleValue = Some "true"
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = true
+  isReadOnly = false } ] ))
+ headerResponse = []
+ linkAnnotations = seq []}
+#############
+requestId:{ endpoint = "/baskets/{name}/requests"
+  xMsPath = None
+  method = Delete }
+requestParameters:{path = ParameterList 
+ ( seq [ {name = "name" 
+ payload = LeafNode { name = ""
+  payload = Fuzzable { primitiveType = String
+                       defaultValue = "RESTlerString"
+                       exampleValue = None
+                       parameterName = None
+                       dynamicObject = None }
+  isRequired = true
+  isReadOnly = false } 
+ serialization = None } ] ) 
+ header = [ (Schema, ParameterList 
+ ( seq [  ] )) ] 
+ query = [ (Schema, ParameterList 
+ ( seq [  ] )) ] 
+ body = [ (Schema, ParameterList 
+ ( seq [  ] )) ] }
+response:Some {bodyResponse = <null>
+ headerResponse = []
+ linkAnnotations = seq []}
+#############

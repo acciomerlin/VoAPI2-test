@@ -1,0 +1,7 @@
+{
+  "forward_url": "http://127.0.0.1:4444/aaaa",
+  "proxy_response": false,
+  "insecure_tls": false,
+  "expand_path": true,
+  "capacity": 250
+}
