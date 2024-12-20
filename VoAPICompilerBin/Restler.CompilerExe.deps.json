@@ -25,7 +25,7 @@
         "runtime": {
           "lib/netstandard2.0/FSharp.Control.AsyncSeq.dll": {
             "assemblyVersion": "1.0.0.0",
-            "fileVersion": "0.0.0.0"
+            "fileVersion": "2.0.21.0"
           }
         }
       },
@@ -119,7 +119,7 @@
         "runtime": {
           "lib/netstandard2.0/Microsoft.FSharpLu.dll": {
             "assemblyVersion": "0.11.7.0",
-            "fileVersion": "0.0.0.0"
+            "fileVersion": "0.11.7.0"
           }
         }
       },
@@ -131,7 +131,7 @@
         "runtime": {
           "lib/netstandard2.0/Microsoft.FSharpLu.Json.dll": {
             "assemblyVersion": "0.11.7.0",
-            "fileVersion": "0.0.0.0"
+            "fileVersion": "0.11.7.0"
           }
         }
       },

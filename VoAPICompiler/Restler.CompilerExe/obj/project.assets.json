@@ -6092,35 +6092,33 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\beet1e\\.nuget\\packages\\": {}
+    "/Users/acciomac/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\workspace\\NSSL\\VoAPI\\VoAPI-compiler\\Restler.CompilerExe\\Restler.CompilerExe.fsproj",
+      "projectUniqueName": "/Users/acciomac/Desktop/repo/VoAPI2-test/VoAPICompiler/Restler.CompilerExe/Restler.CompilerExe.fsproj",
       "projectName": "Restler.CompilerExe",
-      "projectPath": "D:\\workspace\\NSSL\\VoAPI\\VoAPI-compiler\\Restler.CompilerExe\\Restler.CompilerExe.fsproj",
-      "packagesPath": "C:\\Users\\beet1e\\.nuget\\packages\\",
-      "outputPath": "D:\\workspace\\NSSL\\VoAPI\\VoAPI-compiler\\Restler.CompilerExe\\obj\\",
+      "projectPath": "/Users/acciomac/Desktop/repo/VoAPI2-test/VoAPICompiler/Restler.CompilerExe/Restler.CompilerExe.fsproj",
+      "packagesPath": "/Users/acciomac/.nuget/packages/",
+      "outputPath": "/Users/acciomac/Desktop/repo/VoAPI2-test/VoAPICompiler/Restler.CompilerExe/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\beet1e\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/acciomac/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\sdk\\6.0.412\\FSharp\\library-packs": {},
+        "/usr/local/share/dotnet/sdk/6.0.428/FSharp/library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\workspace\\NSSL\\VoAPI\\VoAPI-compiler\\Restler.Compiler\\Restler.Compiler.fsproj": {
-              "projectPath": "D:\\workspace\\NSSL\\VoAPI\\VoAPI-compiler\\Restler.Compiler\\Restler.Compiler.fsproj"
+            "/Users/acciomac/Desktop/repo/VoAPI2-test/VoAPICompiler/Restler.Compiler/Restler.Compiler.fsproj": {
+              "projectPath": "/Users/acciomac/Desktop/repo/VoAPI2-test/VoAPICompiler/Restler.Compiler/Restler.Compiler.fsproj"
             }
           }
         }
@@ -6173,7 +6171,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.412\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.428/RuntimeIdentifierGraph.json"
       }
     }
   }

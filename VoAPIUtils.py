@@ -1083,7 +1083,8 @@ def sqlmap_test(baseurl, api_url, api_method, header_dict, request_dict_list, te
     inject_param_list = []
     try:
         log_str = "---------------------SQLMap Test: " + time.asctime() + "-------------------\n"
-        log_str += "sqlmap_cmd: " + sqlmap_cmd_str + "\n"
+        # log_str += "sqlmap_cmd: " + sqlmap_cmd_str + "\n"
+        log_str += "sqlmap_cmd: " + sqlmap_cmd + "\n"
         write_log(log_file, log_str)
         param_num = len(test_params)
         pipe = subprocess.Popen(sqlmap_cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)

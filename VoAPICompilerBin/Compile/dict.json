@@ -30,9 +30,7 @@
   "restler_custom_payload": {},
   "restler_custom_payload_unquoted": {},
   "restler_custom_payload_uuid4_suffix": {
-    "collectionId": "collection",
-    "fileId": "fileid",
-    "functionId": "functionid",
-    "teamId": "teamid"
+    "method": "method",
+    "name": "name"
   }
 }

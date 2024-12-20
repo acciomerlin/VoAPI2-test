@@ -18,6 +18,8 @@ def vul_verification(verification_server, vul_dir):
             socket_conn, _ = verification_server.accept()
             socket_data = socket_conn.recv(1024).decode('utf-8', errors='ignore')
             if socket_data:
+                response = "HTTP/1.1 200 OK\r\nContent-Type: text/plain\r\n\r\nRequest Received\n"
+                socket_conn.sendall(response.encode('utf-8'))  # 返回响应给客户端
                 for RequestVulnerability in RequestVulnerabilityList:
                     if RequestVulnerability in socket_data:
                         print("find ", RequestVulnerability)
