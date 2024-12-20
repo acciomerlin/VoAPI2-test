@@ -211,6 +211,16 @@ class ApiTemplate(object):
                                             param_name)
         return api_response_value
 
+    def get_api_object(self):
+        return {
+            "api_url": self.api_url,
+            "api_method": self.api_method,
+            "api_request": self.api_request,
+            "api_response": self.api_response,
+            "api_request_value": self.api_request_value,
+            "api_response_value": self.api_response_value
+        }
+
     def show(self):
         print("api_url: ", self.api_url)
         print("api_method: ", self.api_method)
@@ -232,12 +242,14 @@ class ApiTemplate(object):
         f.close()
 
     def __str__(self):
-        return (f"api_url: {self.api_url}; "
-                f"api_method: {self.api_method}; "
-                f"api_request: {self.api_request}; "
-                f"api_response: {self.api_response}; "
-                f"api_request_value: {self.api_request_value}; "
-                f"api_response_value: {self.api_response_value}")
+        return str({
+            "api_url": self.api_url,
+            "api_method": self.api_method,
+            "api_request": self.api_request,
+            "api_response": self.api_response,
+            "api_request_value": self.api_request_value,
+            "api_response_value": self.api_response_value
+        })
 
     def __repr__(self):
         return self.__str__()

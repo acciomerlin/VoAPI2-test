@@ -1,9 +1,27 @@
+import logging
 import os, time, copy, json, argparse
+
+from LlmUtils import update_unfinished_test_seq
+from MyUtils import get_response_info, get_test_seq
 from VoAPIGlobalData import *
 from RESTlerCompileParser import *
 from VoAPITemplate import *
 from VoAPIUtils import *
 from urllib3 import encode_multipart_formdata
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+handler = logging.FileHandler("0A-test-log.log")
+handler.setLevel(logging.INFO)
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+handler.setFormatter(formatter)
+logger.addHandler(handler)
+
+import pprint
+
+pp = pprint.PrettyPrinter(indent=2, depth=6, sort_dicts=False, compact=False)
+ppp = pp.pprint
+ppf = pp.pformat
 
 
 def candidate_apis_test(baseurl, header_dict, param_dict, output_dir, api_template_list, candidate_api_list,
@@ -21,14 +39,23 @@ def candidate_apis_test(baseurl, header_dict, param_dict, output_dir, api_templa
                                                                                        candidate_api_producer_pool,
                                                                                        no_get_producer)
 
-        candidate_api_seq_str = "\n".join(map(str, candidate_api_seq))
-        candidate_api_seq_relations_str = "\n".join(map(str, candidate_api_seq_relations))
-        print(f'reverse_sequence_construction: \n'
+        # debug：打印候选API序列
+        if candidate_api_seq and candidate_api_seq[0]:
+            candidate_api_seq_str = "\n".join(map(str, candidate_api_seq))
+        else:
+            candidate_api_seq_str = "[]"
+
+        if candidate_api_seq_relations and candidate_api_seq_relations[0]:
+            candidate_api_seq_relations_str = "\n".join(map(str, candidate_api_seq_relations))
+        else:
+            candidate_api_seq_relations_str = "[]"
+
+        ppp(f'reverse_sequence_construction: \n'
               f'candidate_api_seq:\n'
               f'{candidate_api_seq_str}\n\n'
               f'candidate_api_seq_relations:\n'
               f'{candidate_api_seq_relations_str}\n'
-              f'=========================================\n')
+              f'-------------------------------------------\n')
 
         write_every_candidate_api_test_log(log_file, candidate_api_seq, candidate_api_seq_relations,
                                            candidate_api_test_types)
@@ -43,6 +70,8 @@ def candidate_apis_test(baseurl, header_dict, param_dict, output_dir, api_templa
             request_dict_list = format_request(temp_request_value, current_api.api_request, open_isrequired)
             response = request_sender(baseurl, current_api.api_url, current_api.api_method, header_dict,
                                       request_dict_list, log_file)
+            request_record = {"baseurl": baseurl, "api_url": current_api.api_url, "api_method": current_api.api_method,
+                              "header_dict": header_dict, "request_dict_list": request_dict_list}
             valid_flag = True
             if response != None:
                 if api_validity_json:
@@ -69,14 +98,40 @@ def candidate_apis_test(baseurl, header_dict, param_dict, output_dir, api_templa
                                 # ToDo: Support Other Content-Type
                                 pass
                     else:
+                        print("!!!!! Unsuccessful Response !!!!!: ", response, "\n", response.text, "\n")
+                        print("!!!!! Unsuccessful api: ", current_api, "\n")
                         valid_flag = False
             else:
                 valid_flag = False
             if not valid_flag:
                 # Record
                 record_unfinished_seq(candidate_api_template, candidate_api_seq, current_api, unfinished_seq_dir)
+                stopped_api = copy.deepcopy(current_api)
+                stopped_api_index = copy.deepcopy(api_index)
+                original_test_seq = copy.deepcopy(candidate_api_seq)
+                stopped_api_response = copy.deepcopy(response)
+
+                logger.warning(f'API Test Failed\n'
+                               f'\n'
+                               f'stopped_api:\n'
+                               f'{ppf(stopped_api)}\n'
+                               f'{"-" * 70}\n'
+                               f'request_record:\n'
+                               f'{ppf(request_record)}\n'
+                               f'{"-" * 70}\n'
+                               f'stopped_api_response:\n'
+                               f'{get_response_info(stopped_api_response)}\n'
+                               f'{"-" * 70}\n'
+                               f'original_test_seq:\n'
+                               f'{get_test_seq(original_test_seq)}\n'
+                               f'\n'
+                               f'{"=" * 90}\n')
+
+                update_unfinished_test_seq(original_test_seq, stopped_api, stopped_api_index, stopped_api_response)
+
                 finished_flag = False
                 break
+
         if finished_flag:
             vul_dir = output_dir + "vul/"
             undetected_suspicious_dir = output_dir + "undetected_suspicious/"
@@ -275,6 +330,11 @@ def candidate_apis_test(baseurl, header_dict, param_dict, output_dir, api_templa
                             #     record_undetected_suspicious_api(candidate_api_template, candidate_api_test_type, test_param, undetected_suspicious_dir)
                 else:
                     print("Not Supported API Func: ", candidate_api_test_type)
+        print("Tested API: ", candidate_api_template.api_url, candidate_api_template.api_method)
+        print("Tested API Test Types: ", candidate_api_test_types)
+        print("Tested API Test Result: ", finished_flag)
+        print("\n", "=" * 90, "\n")
+
         # except Exception as e:
         #     continue
 

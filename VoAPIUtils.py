@@ -1001,6 +1001,9 @@ def record_vul_api(vul_output_dir, api_func, vul_api, vul_param, test_payload, r
     f.write(vul_api_content)
     f.close()
 
+    print("Vul API: ", vul_api.api_url, vul_api.api_method, vul_param, test_payload)
+    print("Vul content: ", vul_api_content)
+
 
 def write_log(log_file, log_str):
     f = open(log_file, "a+")
