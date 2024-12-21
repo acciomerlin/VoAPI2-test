@@ -19,7 +19,7 @@ logger.addHandler(handler)
 
 import pprint
 
-pp = pprint.PrettyPrinter(indent=2, depth=6, sort_dicts=False, compact=False)
+pp = pprint.PrettyPrinter(indent=2, depth=30, sort_dicts=False, compact=False, width=200)
 ppp = pp.pprint
 ppf = pp.pformat
 
@@ -51,11 +51,11 @@ def candidate_apis_test(baseurl, header_dict, param_dict, output_dir, api_templa
             candidate_api_seq_relations_str = "[]"
 
         ppp(f'reverse_sequence_construction: \n'
-              f'candidate_api_seq:\n'
-              f'{candidate_api_seq_str}\n\n'
-              f'candidate_api_seq_relations:\n'
-              f'{candidate_api_seq_relations_str}\n'
-              f'-------------------------------------------\n')
+            f'candidate_api_seq:\n'
+            f'{candidate_api_seq_str}\n\n'
+            f'candidate_api_seq_relations:\n'
+            f'{candidate_api_seq_relations_str}\n'
+            f'-------------------------------------------\n')
 
         write_every_candidate_api_test_log(log_file, candidate_api_seq, candidate_api_seq_relations,
                                            candidate_api_test_types)
@@ -114,7 +114,10 @@ def candidate_apis_test(baseurl, header_dict, param_dict, output_dir, api_templa
                 logger.warning(f'API Test Failed\n'
                                f'\n'
                                f'stopped_api:\n'
-                               f'{ppf(stopped_api)}\n'
+                               f'{ppf(stopped_api.get_api_object())}\n'
+                               f'{"-" * 70}\n'
+                               f'candidate_api_test_types:\n'
+                               f'{candidate_api_test_types}\n'
                                f'{"-" * 70}\n'
                                f'request_record:\n'
                                f'{ppf(request_record)}\n'

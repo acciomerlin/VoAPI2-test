@@ -3,7 +3,13 @@ import os
 from openai import OpenAI
 
 api_key = os.getenv("OPENAI_API_KEY")
-print(f'api_key:{api_key[:15]}...')
+
+if api_key:
+    print(f'api_key:{api_key[:15]}...')
+else:
+    print("api_key is None")
+    exit()
+
 client = OpenAI(api_key=api_key)
 
 prompt_str = """
@@ -115,9 +121,6 @@ def update_unfinished_test_seq(original_test_seq, stopped_api, stopped_api_index
     new_test_seq = original_test_seq.copy()
 
 
-
-
 if __name__ == '__main__':
     # pass
     test_api()
-

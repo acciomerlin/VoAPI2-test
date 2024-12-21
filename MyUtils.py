@@ -1,7 +1,7 @@
 import requests
 import pprint
 
-pp = pprint.PrettyPrinter(indent=2, depth=6, sort_dicts=False, compact=False)
+pp = pprint.PrettyPrinter(indent=2, depth=30, sort_dicts=False, compact=False, width=200)
 ppp = pp.pprint
 ppf = pp.pformat
 
